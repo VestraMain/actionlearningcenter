@@ -4,6 +4,6 @@
   "private": true,
   "description": "Action Learning Academy bilingual website",
   "scripts": {
-    "build": "node -e \"console.log('Static website ready')\""
+    "build": "node -e \"const fs=require('fs');fs.rmSync('public',{recursive:true,force:true});fs.mkdirSync('public',{recursive:true});fs.copyFileSync('index.html','public/index.html');fs.cpSync('site','public/site',{recursive:true});console.log('Static website ready in public')\""
   }
 }
