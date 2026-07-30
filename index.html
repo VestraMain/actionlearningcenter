@@ -114,7 +114,16 @@
             chunks.push(await response.text());
           }
 
-          const page = chunks.join("");
+          const page = chunks
+            .join("")
+            .split("Nosotros.dc.html")
+            .join("#vida")
+            .split("Programa.dc.html")
+            .join("#programa")
+            .split("Contacto.dc.html")
+            .join("#contacto")
+            .split('href="#"')
+            .join('href="#vida"');
           document.open();
           document.write(page);
           document.close();
