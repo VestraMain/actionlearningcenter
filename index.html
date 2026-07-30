@@ -129,7 +129,16 @@
           document.open();
           document.write(page);
           document.close();
-          document.title = "Action Learning Academy";
+          const syncTitle = () => {
+            if (document.title !== "Action Learning Academy") {
+              document.title = "Action Learning Academy";
+            }
+          };
+          new MutationObserver(syncTitle).observe(document, {
+            childList: true,
+            subtree: true,
+          });
+          syncTitle();
         } catch (error) {
           console.error(error);
           status.textContent =
