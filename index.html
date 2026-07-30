@@ -122,6 +122,8 @@
             .join("#programa")
             .split("Contacto.dc.html")
             .join("#contacto")
+            .split('href=\\"#\\"')
+            .join('href=\\"#vida\\"')
             .split('href="#"')
             .join('href="#vida"');
           document.open();
